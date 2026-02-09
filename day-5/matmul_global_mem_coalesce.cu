@@ -1,5 +1,5 @@
 #include <cuda_runtime.h>
-#define BLOCKSIZE 16
+#define BLOCKSIZE 32
 
 __global__ void matmul_kernel_global_mem_coalesce(
     const float* A,
@@ -39,8 +39,8 @@ extern "C" void solution(
 
     dim3 block(BLOCKSIZE*BLOCKSIZE);
     dim3 grid(
-        (m + block.x - 1) / BLOCKSIZE,
-        (n + block.y - 1) / BLOCKSIZE
+        (m + BLOCKSIZE- 1) / BLOCKSIZE,
+        (n + BLOCKSIZE - 1) / BLOCKSIZE
     );
 
     matmul_kernel_naive<<<grid, block>>>(d_a, d_b, d_c, m, n, k);
