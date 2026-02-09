@@ -6,4 +6,4 @@ This document reports the performance of of different matrix multiplication kern
 |---|---:|---|---|---:|---:|
 | Naive MatMul | none (no tiling, no shared memory, no loop unrolling) | Tansera | NVIDIA H100 | FP32 | 960.00 GFLOPS |
 | Global Mem Coalesce | global memory access coalescing (coalesced loads/stores) | Tansera | NVIDIA H100 | FP32 | 5806.04 GFLOPS |
-
+| Shared Mem  | SMEM access with tiling  | Tansera | NVIDIA H100 | FP32 | 8435.38 GFLOPS |
